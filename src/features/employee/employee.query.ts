@@ -13,8 +13,6 @@ class EmployeeQuery {
 
             if (minimumExp) minDate.setFullYear( minDate.getFullYear() - minimumExp);
             if (maximumExp) maxDate.setFullYear( maxDate.getFullYear() - maximumExp);
-            console.log("======{$gte: minDate,$lte:new Date()}",{$lte: minDate,$gte:maxDate});
-
 
             searchQuery.joiningDate = {...(minimumExp && {$lte: minDate}),...(maximumExp && {$gte:maxDate})}
         }
@@ -23,7 +21,6 @@ class EmployeeQuery {
             searchQuery.salary = {...(minimumSalary && {$gte: Number( minimumSalary)}),...(maximumSalary && {$lte:Number( maximumSalary)})}
         }
         let aggregateQuery:any;
-        console.log("======searchQuery",searchQuery);
         
         aggregateQuery = [
             {

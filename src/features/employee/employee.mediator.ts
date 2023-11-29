@@ -3,9 +3,7 @@ import {employeeQuery}  from "./employee.query";
 
 
 class EmployeeMediator{
-    /**
-     * add
-     */
+
     public async addInBulk(body:any) {
         let response:any;
         response = await employeeService.addInBulk(body); 

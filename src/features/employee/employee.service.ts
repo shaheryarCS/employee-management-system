@@ -3,9 +3,7 @@ import employeeRepo from "../../repositories/employee"
 
 
 class EmployeeService{
-    /**
-     * add
-     */
+
     public async addInBulk(employees:any) {
         return await employeeRepo.addInBulk(employees);
     }
