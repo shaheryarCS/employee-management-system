@@ -1,0 +1,1 @@
+export interface httpVaribales { body:string,query:string}

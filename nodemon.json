@@ -1,0 +1,11 @@
+{
+    "env":{
+        "NODE_ENV":"development"
+    },
+    "ext":"ts",
+    "exec":"ts-node -- src/app.ts",
+    "verbose": true,
+    "ignore": ["**/*.test.ts","*.test.js", "**/fixtures/**"],
+    "signal":"SIGTERM"
+
+}
