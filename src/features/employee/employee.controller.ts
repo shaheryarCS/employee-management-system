@@ -11,7 +11,6 @@ class EmployeeController {
         
         let response : any;
         response = await employeeMediator.addInBulk(body);
-        console.log("response",response);
         
         SEND_RESPONSE(response, res);
 
