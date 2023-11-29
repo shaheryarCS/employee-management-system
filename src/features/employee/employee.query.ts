@@ -23,7 +23,6 @@ class EmployeeQuery {
             searchQuery.salary = {...(minimumSalary && {$gte: Number( minimumSalary)}),...(maximumSalary && {$lte:Number( maximumSalary)})}
         }
         let aggregateQuery:any;
-        console.log("======searchQuery",searchQuery);
         
         aggregateQuery = [
             {

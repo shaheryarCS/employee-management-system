@@ -4,7 +4,7 @@ import { employeeMediator } from "./employee.mediator";
 
 class EmployeeController {
     /**
-     * add
+     * add Employees in bulk
      */
     public async bulkAdd(req: any, res: any) {
         let body = req?.body;
@@ -16,6 +16,9 @@ class EmployeeController {
         SEND_RESPONSE(response, res);
 
     }
+    /**
+     * Get employees with respect to All and filter
+     */
     public async get(req: any, res: any) {
         let response:any;
         let query = req.query;

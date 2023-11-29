@@ -8,10 +8,6 @@ import mongoose from 'mongoose';
 const app = express();
 const port = process.env.port;
 connectMongoDB();
-// mongoose.connect("mongodb://127.0.0.1:27017/employee" || '', {
-//   serverSelectionTimeoutMS: 5000
-// }).catch(err => console.log(err.reason));
-
 
 // Parse the request
 app.use(express.urlencoded({extended:false}));

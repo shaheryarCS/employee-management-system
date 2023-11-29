@@ -7,8 +7,7 @@ class EmployeeRepository {
      * add
      */
     public async addInBulk(employees: any) {
-        // let employee = new Employee(order);
-        let response;
+        let response:any;
         Employee.insertMany(employees)
             .then((res) => {
                 response = {
@@ -18,7 +17,7 @@ class EmployeeRepository {
                 }
             })
             .catch((error) => {
-                console.log("Error while creating employees")
+                console.log("error",error)
 
                 response = {
                     status: ResponseType.FAILURE,
@@ -26,7 +25,6 @@ class EmployeeRepository {
                     message: "Error while creating employees"
                 }
             });
-            console.log("=========response",response);
             
         return response;
 
@@ -34,7 +32,6 @@ class EmployeeRepository {
     public async get(query:any) {
         try {
             let response = await Employee.aggregate(query);
-            console.log("response", response);
             if (response) {
                 return {
                     status: ResponseType.SUCCESS,
@@ -50,7 +47,11 @@ class EmployeeRepository {
             }
         } catch (error) {
             console.log("error", error);
-
+            return {
+                status: ResponseType.FAILURE,
+                data: null,
+                message: "Internal Error occurred"
+            }
         }
 
     }
