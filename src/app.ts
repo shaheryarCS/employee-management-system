@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Server is live');
 });
 
 
