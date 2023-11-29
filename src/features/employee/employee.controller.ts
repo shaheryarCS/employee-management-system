@@ -25,6 +25,36 @@ class EmployeeController {
         SEND_RESPONSE(response, res);
 
     }
+    /**
+     * Get avg salay per depart
+     */
+    public async getSalary(req: any, res: any) {
+        let response:any;
+        response = await employeeMediator.getSalary();
+        SEND_RESPONSE(response, res);
+
+    }
+   /**
+     * Get "N" Top Earners 
+     */
+    public async getTopEarners(req: any, res: any) {
+        let response:any;
+        let query = req.query;
+        response = await employeeMediator.getTopEarners(query);
+        SEND_RESPONSE(response, res);
+
+    }
+   /**
+     * Get Retention Rate of employees
+     */
+    public async getRetentionRate(req: any, res: any) {
+        let response:any;
+        let query = req.query;
+        response = await employeeMediator.getRetentionRate(query);
+        SEND_RESPONSE(response, res);
+
+    }
+    
 }
 
 export const employeeController = new EmployeeController();
