@@ -36,6 +36,44 @@ class EmployeeQuery {
 
         return aggregateQuery
     }
+
+    public getSalary() {
+        let aggregateQuery:any;
+        
+        aggregateQuery = [
+            {
+                $group:{ _id:"$position", avgSalary:{$avg:"$salary"} }
+            },
+            {
+                $project:{
+                    depart:"$_id",
+                    avgSalary:1,
+                    _id:0
+                  }
+            }
+        ];
+
+        return aggregateQuery
+    }
+
+    public getTopEarners(query:any) {
+        const {num} = query
+        let aggregateQuery:any;
+        
+        aggregateQuery = [
+            {
+                $sort:{salary: -1}
+            },
+            {
+                $skip:Number(0)
+            },
+            {
+                $limit:Number(num)
+            }
+        ];
+
+        return aggregateQuery
+    }
 }
 
 export const employeeQuery = new EmployeeQuery();

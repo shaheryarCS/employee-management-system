@@ -17,5 +17,13 @@ export const employeeSchema = {
             salary: joi.number().required(),
             joiningDate: joi.string().required(),
         })
-    )
+    ),
+    getTopEarners:joi.object().keys({
+        num: joi.string().allow(null)
+    }),
+    getRetentionRate:joi.object().keys({
+        employeesWhoLeft: joi.string().allow(null),
+        employeesAtEndingPeriod: joi.string().allow(null),
+        employeesAtStartingPeriod: joi.string().allow(null),
+    }),
 } 
